@@ -11,7 +11,7 @@ A wrapper in [Crystal](https://crystal-lang.org) for the [OwO What's This?](http
 ```yaml
 dependencies:
   owocr:
-    github: Proximyst/owocr
+    github: whats-this/owocr
     branch: master
 ```
 
