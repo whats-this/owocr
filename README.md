@@ -1,6 +1,6 @@
 # owo.cr
 
-[![Build Status](https://travis-ci.org/Proximyst/owocr.svg?branch=master)](https://travis-ci.org/Proximyst/owocr)
+[![Build Status](https://travis-ci.org/whats-this/owocr.svg?branch=master)](https://travis-ci.org/whats-this/owocr)
 
 A wrapper in [Crystal](https://crystal-lang.org) for the [OwO What's This?](https://owo.whats-th.is) file sharing service.
 
@@ -33,3 +33,5 @@ You will then need to utilise one of the methods as listed:
   1. `OwO::WhatsThis#shorten(url : String|URI) : String` - Returns the CDN endpoint.
   1. `OwO::WhatsThis#upload_file(data : File, contenttype : String? = nil) : UploadedFile` - Returns the [API data](src/owocr/uploadedfile).
   1. `OwO::WhatsThis#upload_data(data : Bytes, file_name : String, content_type : String) : UploadedFile` - Returns the API data.
+
+For more in-depth explanation of these, you can go to the GitHub Wiki pages.
