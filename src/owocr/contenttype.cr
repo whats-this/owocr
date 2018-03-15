@@ -1,4 +1,6 @@
 module OwO
+  # The function guesses what Content-Type a file may have from its extension.
+  # If the extension is unknown or non-existant, it will return "application/octet-stream".
   def self.content_type(file : File)
     case File.extname(file.path)
     when ".txt"                             then "text/plain"
