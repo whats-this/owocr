@@ -1,0 +1,14 @@
+name: owocr
+version: 0.1.0
+
+authors:
+  - Mariell Hoversholm <proximyst@proximyst.com>
+
+crystal: 0.24.2
+
+license: MIT
+
+dependencies:
+  cossack:
+    github: crystal-community/cossack
+    branch: master

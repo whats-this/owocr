@@ -1,0 +1,8 @@
+language: crystal
+
+cache:
+  - .shards/
+  - lib/
+
+before_script:
+  - shards update
