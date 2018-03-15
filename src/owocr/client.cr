@@ -8,10 +8,10 @@ require "./uploadedfile.cr"
 
 module OwO
   API_URL    = "https://api.awau.moe"
-  USER_AGENT = "Crystal/OwO.cr " + VERSION
+  USER_AGENT = "WhatsThisClient (https://github.com/whats-this/owocr, " + VERSION + ")"
 
   class WhatsThis
-    def initialize(@token : String, @user_agent : String = USER_AGENT)
+    def initialize(@token : String, @user_agent : String = USER_AGENT, @api_url : String = API_URL)
       raise Exceptions::InvalidToken.new if token.empty?
 
       @client = Cossack::Client.new do |client|
@@ -31,7 +31,7 @@ module OwO
         "Content-Type"        => content_type,
       }, data
       multipart.finish
-      response = @client.post(API_URL + "/upload/pomf", io.to_s) do |req|
+      response = @client.post(@api_url + "/upload/pomf", io.to_s) do |req|
         req.headers["Content-Type"] = "multipart/form-data; boundary=" + boundary
       end
       raise Exceptions::Unauthorized.new if response.status == 401
@@ -48,7 +48,7 @@ module OwO
     end
 
     def shorten(url : String | URI)
-      response = @client.get(API_URL + "/shorten/polr?action=shorten&url=" + url.to_s)
+      response = @client.get(@api_url + "/shorten/polr?action=shorten&url=" + url.to_s)
       raise Exceptions::Unauthorized.new if response.status == 401
       raise Exceptions::OwOInternalError.new if response.status == 500
       url = response.body.lines.first
