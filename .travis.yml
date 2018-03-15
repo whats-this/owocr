@@ -3,3 +3,16 @@ language: crystal
 script:
   - crystal build src/owocr.cr
   - crystal spec
+
+notifications:
+  email: false
+  irc:
+    channels:
+      - "ircs://irc.esper.net:6697/#proximyst"
+      - "ircs://irc.spi.gt:6697/#proximyst"
+    on_success: always
+    on_failure: always
+    template:
+      - "#%{build_number} (%{build_id}) -> %{repository_slug}/%{branch} (%{commit}, %{author}): %{commit_subject}"
+      - "%{result} @ %{elapsed_time} - %{build_url}"
+      - "Changes: %{compare_url}"
