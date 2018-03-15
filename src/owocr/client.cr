@@ -37,7 +37,7 @@ module OwO
       raise Exceptions::InvalidToken.new if token.empty?
 
       @client = Cossack::Client.new do |client|
-        client.headers["User-Agent"] = @user_agent
+        client.headers["User-Agent"] = user_agent
         client.headers["Authorization"] = @token
         client.use Cossack::RedirectionMiddleware
       end
