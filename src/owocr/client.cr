@@ -21,7 +21,7 @@ module OwO
     #
     #  - *token* being the OwO token.
     #    The token may not have the dashes stripped and must not include any form for whitespace.
-    #    If the token is empty, it will raise an `OwO::Exceptions::InvalidToken` exception.
+    #    If the token is empty, it will raise an `Exceptions::InvalidToken` exception.
     #  - *user_agent* being the User-Agent field.
     #    The User-Agent to be used. This is not recommended to change, as your application may be denied access to the API.
     #    It is defaulted to `OwO::USER_AGENT`.
@@ -56,10 +56,10 @@ module OwO
     #
     # Under the following circumstances are exceptions raised:
     #
-    #  - `OwO::Exceptions::Unauthorized` is raised if the `@token` value is deactivated.
-    #  - `OwO::Exceptions::TooLargePayload` is raised if OwO changes the payload max size before this library updates.
-    #  - `OwO::Exceptions::TooLarge` is raised if you upload data over the size of 100MiB.
-    #  - `OwO::Exceptions::OwOInternalError` is raised if OwO has an internal error at their API.
+    #  - `Exceptions::Unauthorized` is raised if the `@token` value is deactivated.
+    #  - `Exceptions::TooLargePayload` is raised if OwO changes the payload max size before this library updates.
+    #  - `Exceptions::TooLarge` is raised if you upload data over the size of 100MiB.
+    #  - `Exceptions::OwOInternalError` is raised if OwO has an internal error at their API.
     #
     # A 404 error is not handled by this library and may result in a panic.
     #
@@ -101,8 +101,8 @@ module OwO
     #
     # Under the following circumstances are exceptions raised:
     #
-    #  - `OwO::Exceptions::Unauthorized` is raised if the `@token` value is deactivated.
-    #  - `OwO::Exceptions::OwOInternalError` is raised if OwO has an internal error at their API.
+    #  - `Exceptions::Unauthorized` is raised if the `@token` value is deactivated.
+    #  - `Exceptions::OwOInternalError` is raised if OwO has an internal error at their API.
     #
     # A 404 error is not handled by this library and may result in a panic.
     #
