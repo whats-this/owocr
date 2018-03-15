@@ -1,4 +1,4 @@
-# owo.cr
+# owocr
 
 [![Build Status](https://travis-ci.org/whats-this/owocr.svg?branch=master)](https://travis-ci.org/whats-this/owocr)
 
