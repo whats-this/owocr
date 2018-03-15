@@ -1,8 +1,5 @@
 language: crystal
 
-cache:
-  - .shards/
-  - lib/
-
-before_script:
-  - shards update
+script:
+  - crystal build src/owocr.cr
+  - crystal spec
