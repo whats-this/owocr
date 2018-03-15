@@ -1,5 +1,7 @@
 # owo.cr
 
+[![Build Status](https://travis-ci.org/Proximyst/owocr.svg?branch=master)](https://travis-ci.org/Proximyst/owocr)
+
 A wrapper in [Crystal](https://crystal-lang.org) for the [OwO What's This?](https://owo.whats-th.is) file sharing service.
 
 ## Instructions (Developers)
