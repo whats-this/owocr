@@ -16,3 +16,16 @@ notifications:
       - "#%{build_number} (%{build_id}) -> %{repository_slug}/%{branch} (%{commit}, %{author}): %{commit_subject}"
       - "%{result} @ %{elapsed_time} - %{build_url}"
       - "Changes: %{compare_url}"
+
+before-deploy:
+  - crystal docs
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  # Token is set in Travis dashboard
+  github-token: $GITHUB_TOKEN
+  local-dir: docs
+  comitter-from-gh: true
+  on:
+    branch: master
