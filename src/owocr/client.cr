@@ -95,7 +95,7 @@ module OwO
       ret = UploadedFile.from_json response.body
       base = get_proper_data_base
       if !base.nil?
-        for data in ret.files do
+        ret.files.each do |data|
           data.url = base + data.url
         end
       end
