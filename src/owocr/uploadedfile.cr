@@ -9,7 +9,7 @@ module OwO
       files: Array(UploadedFileData),
     )
 
-    def initialize(@success : Bool, @files : Array(UploadedFileData))
+    def initialize(@success, @files)
     end
   end
 
@@ -29,7 +29,7 @@ module OwO
       size: Int64,
     )
 
-    def initialize(@hash : String, @name : String, @url : String, @size : Int64)
+    def initialize(@hash, @name, @url, @size)
     end
   end
 end
