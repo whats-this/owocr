@@ -43,6 +43,18 @@ module OwO
       end
     end
 
+    # The base URI for all normal data uploaded.
+    # This gets prepended to every `url` field in the `OwO::UploadedFileData` objects.
+    #
+    # NOTE: This only applies to `#upload_data` and `#upload_file`.
+    property data_base : String? = nil
+
+    # The base URI for all shortenings.
+    # This gets prepended to the shortened URI return.
+    #
+    # NOTE: This only applies to `#shorten`.
+    property shorten_base : String? = nil
+
     # `#upload_data` uploads the data as specified by the parameters:
     #
     #  - *data* being the data in a `Bytes` instance.
@@ -80,7 +92,14 @@ module OwO
       raise Exceptions::Unauthorized.new if response.status == 401
       raise Exceptions::TooLargePayload.new if response.status == 413
       raise Exceptions::OwOInternalError.new if response.status == 500
-      return UploadedFile.from_json response.body
+      ret = UploadedFile.from_json response.body
+      base = get_proper_data_base
+      if !base.nil?
+        for data in ret.files do
+          data.url = base + data.url
+        end
+      end
+      return ret
     end
 
     # `#upload_file` is generally the same as `#upload_data`, however it tries to guess Content-Type and also inputs from a file.
@@ -113,7 +132,22 @@ module OwO
       raise Exceptions::Unauthorized.new if response.status == 401
       raise Exceptions::OwOInternalError.new if response.status == 500
       url = response.body.lines.first
-      return url.lchop "https://awau.moe/"
+      url = url.lchop "https://awau.moe/"
+      base = get_proper_shorten_base || return url
+      url = base + url
+      return url
+    end
+
+    # This is an internal method to get a properly formatted URI of the `#data_base` output.
+    private def get_proper_data_base
+      base = data_base || return nil
+      return "https://" + base.lchop("https").lchop("http").lstrip(':').lstrip('/').rstrip('/') + '/'
+    end
+
+    # This is an internal method to get a properly formatted URI of the `#shorten_base` output.
+    private def get_proper_shorten_base
+      base = shorten_base || return nil
+      return "https://" + base.lchop("https").lchop("http").lstrip(':').lstrip('/').rstrip('/') + '/'
     end
   end
 end
