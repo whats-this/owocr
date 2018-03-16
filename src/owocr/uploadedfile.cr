@@ -1,3 +1,5 @@
+require "json"
+
 module OwO
   # `UploadedFile` contains data as to what files were uploaded to the API.
   # As of `VERSION` 0.1.0, `UploadedFile#files` never has more than 1 item.
