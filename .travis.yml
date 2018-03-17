@@ -20,7 +20,8 @@ notifications:
 
 deploy:
   provider: pages
-  skip-cleanup: true
+  keep-history: true
+  skip-cleanup: false
   # Token is set in Travis dashboard
   github-token: $GITHUB_TOKEN
   local-dir: docs
