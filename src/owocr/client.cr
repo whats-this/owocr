@@ -5,6 +5,7 @@ require "http"
 require "cossack"
 require "./contenttype.cr"
 require "./uploadedfile.cr"
+require "./uploaddata.cr"
 
 module OwO
   # `API_URI` is a constant to the default OwO v1 API endpoint: https://api.awau.moe
@@ -55,16 +56,10 @@ module OwO
     # NOTE: This only applies to `#shorten`.
     property shorten_base : String? = nil
 
-    # `#upload_data` uploads the data as specified by the parameters:
+    # `upload` uploads data given by `OwO::UploadData` by passing it to the overloaded `#upload`
+    # method which takes three of them and spits out a tuple of three nullable `OwO::UploadedFile`.
     #
-    #  - *data* being the data in a `Bytes` instance.
-    #    This data is uploaded raw as UTF-8 to OwO.
-    #    It may not include several chunks for several files to be uploaded at once.
-    #  - *file_name* is the file name to be sent to OwO.
-    #    In bandwidth-favouring cases, one would prefer a basic name such as `a.png`, where the extension is kept.
-    #    The extension on OwO's server is gotten from this parameter.
-    #  - *content_type* is the value for the Content-Type header of the file.
-    #    It must be a valid MIME type, and is defaulted to "application/octet-stream".
+    # All this does is call `#upload` with two nil arguments and get the first tuple member.
     #
     # Under the following circumstances are exceptions raised:
     #
@@ -75,16 +70,36 @@ module OwO
     #
     # A 404 error is not handled by this library and may result in a panic.
     #
-    # It returns an instance of `UploadedFile`.
-    def upload_data(data : Bytes, file_name : String, content_type : String = "application/octet-stream")
-      raise Exceptions::TooLarge.new if data.size > 100*1024*1024
+    # NOTE: The return is nullable and there is no guarantee this conforms to your needs.
+    def upload(data : UploadData)
+      return upload(data, nil, nil)[0]?
+    end
+
+    # `#upload` uploads the data from `OwO::UploadData` objects.
+    # You can pass up to three, as that's what OwO limits it at, but if it were higher, there would be more support.
+    #
+    # Under the following circumstances are exceptions raised:
+    #
+    #  - `Exceptions::Unauthorized` is raised if the `@token` value is deactivated.
+    #  - `Exceptions::TooLargePayload` is raised if OwO changes the payload max size before this library updates.
+    #  - `Exceptions::TooLarge` is raised if you upload data over the size of 100MiB.
+    #  - `Exceptions::OwOInternalError` is raised if OwO has an internal error at their API.
+    #
+    # A 404 error is not handled by this library and may result in a panic.
+    #
+    # It does not return `OwO::UploadedFile` as it did in v0.1.0, however it returns `OwO::UploadedFileData`.
+    # In this case it however returns it as `Tuple(UploadedFileData?, UploadedFileData?, UploadedFileData?)`.
+    def upload(first : UploadData, second : UploadData?, third : UploadData? = nil)
+      total = first.data.size
+      total += second.data.size if !second.nil?
+      total += third.data.size if !third.nil?
+      raise Exceptions::TooLarge.new if total > 100*1024*1024
       io = IO::Memory.new
       boundary = HTTP::Multipart.generate_boundary
       multipart = HTTP::Multipart::Builder.new(io, boundary)
-      multipart.body_part HTTP::Headers{
-        "Content-Disposition" => "form-data; name=\"files[]\"; filename=\"" + file_name + "\"",
-        "Content-Type"        => content_type,
-      }, data
+      add_multipart first, multipart
+      add_multipart second, multipart
+      add_multipart third, multipart
       multipart.finish
       response = @client.post(@api_uri + "/upload/pomf", io.to_s) do |req|
         req.headers["Content-Type"] = "multipart/form-data; boundary=" + boundary
@@ -92,27 +107,14 @@ module OwO
       raise Exceptions::Unauthorized.new if response.status == 401
       raise Exceptions::TooLargePayload.new if response.status == 413
       raise Exceptions::OwOInternalError.new if response.status == 500
-      ret = UploadedFile.from_json response.body
+      uploaded = UploadedFile.from_json response.body
       base = get_proper_data_base
       if !base.nil?
-        ret.files.each do |data|
+        uploaded.files.each do |data|
           data.url = base + data.url
         end
       end
-      return ret
-    end
-
-    # `#upload_file` is generally the same as `#upload_data`, however it tries to guess Content-Type and also inputs from a file.
-    # Take note this stores the entire file into memory.
-    #
-    # All exceptions specified in `#upload_data` apply here with the same reasons.
-    #
-    # It returns an instance of `UploadedFile`.
-    def upload_file(data : File, contenttype : String? = nil)
-      raise Exceptions::TooLarge.new if data.size > 100*1024*1024
-      read = Bytes.new data.size
-      data.read read
-      return upload_data read, data.path.split(File::SEPARATOR).pop, OwO.content_type(data)
+      return {uploaded.files[0]?, uploaded.files[1]?, uploaded.files[2]?}
     end
 
     # `#shorten` shortens the `String` URI or the `URI` instance as input.
@@ -148,6 +150,13 @@ module OwO
     private def get_proper_shorten_base
       base = shorten_base || return nil
       return "https://" + base.lchop("https").lchop("http").lstrip(':').lstrip('/').rstrip('/') + '/'
+    end
+
+    private macro add_multipart(name, multipart)
+    {{multipart}}.body_part HTTP::Headers{
+      "Content-Disposition" => "form-data; name=\"files[]\"; filename=\"" + {{name}}.filename + "\"",
+      "Content-Type"        => {{name}}.content_type,
+    }, {{name}}.data if !{{name}}.nil?
     end
   end
 end

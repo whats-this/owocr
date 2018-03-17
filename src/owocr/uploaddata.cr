@@ -10,9 +10,9 @@ module OwO
     def initialize(file : File, name : String? = nil, type : String? = nil)
       read_bytes = Bytes.new file.size
       file.read read_bytes
-      data= read_bytes
-      filename= name || data.path.split(File::SEPARATOR).pop
-      content_type= type || OwO.content_type file
+      @data = read_bytes
+      @filename = name || file.path.split(File::SEPARATOR).pop
+      @content_type = type || OwO.content_type file
     end
   end
 end
