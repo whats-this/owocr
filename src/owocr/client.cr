@@ -72,7 +72,7 @@ module OwO
     #
     # NOTE: The return is nullable and there is no guarantee this conforms to your needs.
     def upload(data : UploadData)
-      return upload(data, nil, nil)[0]?
+      upload(data, nil, nil)[0]?
     end
 
     # `#upload` uploads the data from `OwO::UploadData` objects.
@@ -96,11 +96,13 @@ module OwO
       raise Exceptions::TooLarge.new if total > 100*1024*1024
       io = IO::Memory.new
       boundary = HTTP::Multipart.generate_boundary
-      multipart = HTTP::Multipart::Builder.new(io, boundary)
-      add_multipart first, multipart
-      add_multipart second, multipart
-      add_multipart third, multipart
-      multipart.finish
+      begin
+        multipart = HTTP::Multipart::Builder.new io, boundary
+        add_multipart first, multipart
+        add_multipart second, multipart
+        add_multipart third, multipart
+        multipart.finish
+      end
       response = @client.post(@api_uri + "/upload/pomf", io.to_s) do |req|
         req.headers["Content-Type"] = "multipart/form-data; boundary=" + boundary
       end
@@ -114,7 +116,8 @@ module OwO
           data.url = base + data.url
         end
       end
-      return {uploaded.files[0]?, uploaded.files[1]?, uploaded.files[2]?}
+
+      {uploaded.files[0]?, uploaded.files[1]?, uploaded.files[2]?}
     end
 
     # `#shorten` shortens the `String` URI or the `URI` instance as input.
@@ -130,33 +133,48 @@ module OwO
     # It returns a `String` which is the endpoint key for the CDN.
     # In order to access it, you'll need to prefix it with a valid CDN URI, found on the OwO FAQ.
     def shorten(uri : String | URI)
-      response = @client.get(@api_uri + "/shorten/polr?action=shorten&url=" + uri.to_s)
+      response = @client.get @api_uri + "/shorten/polr?action=shorten&url=" + uri.to_s
       raise Exceptions::Unauthorized.new if response.status == 401
       raise Exceptions::OwOInternalError.new if response.status == 500
       url = response.body.lines.first
       url = url.lchop "https://awau.moe/"
       base = get_proper_shorten_base || return url
       url = base + url
-      return url
+
+      url
     end
 
     # This is an internal method to get a properly formatted URI of the `#data_base` output.
     private def get_proper_data_base
       base = data_base || return nil
-      return "https://" + base.lchop("https").lchop("http").lstrip(':').lstrip('/').rstrip('/') + '/'
+      base = base.lchop "https"
+      base = base.lchop "http"
+      base = base.lstrip ':'
+      base = base.lstrip '/'
+      base = base.rstrip '/'
+      base += '/'
+
+      base
     end
 
     # This is an internal method to get a properly formatted URI of the `#shorten_base` output.
     private def get_proper_shorten_base
       base = shorten_base || return nil
-      return "https://" + base.lchop("https").lchop("http").lstrip(':').lstrip('/').rstrip('/') + '/'
+      base = base.lchop "https"
+      base = base.lchop "http"
+      base = base.lstrip ':'
+      base = base.lstrip '/'
+      base = base.rstrip '/'
+      base += '/'
+
+      base
     end
 
     private macro add_multipart(name, multipart)
-    {{multipart}}.body_part HTTP::Headers{
-      "Content-Disposition" => "form-data; name=\"files[]\"; filename=\"" + {{name}}.filename + "\"",
-      "Content-Type"        => {{name}}.content_type,
-    }, {{name}}.data if !{{name}}.nil?
+      {{multipart}}.body_part HTTP::Headers{
+        "Content-Disposition" => "form-data; name=\"files[]\"; filename=\"" + {{name}}.filename + "\"",
+        "Content-Type"        => {{name}}.content_type,
+      }, {{name}}.data if !{{name}}.nil?
     end
   end
 end
