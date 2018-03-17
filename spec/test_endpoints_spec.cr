@@ -17,7 +17,9 @@ describe OwO::WhatsThis do
   inst = OwO::WhatsThis.new token
   shortened_id = inst.shorten shorten_url
   puts "https://owo.whats-th.is/" + shortened_id
-  image_id = inst.upload_file(File.new image_file_name).files[0].url
+  image_id = inst.upload(OwO::UploadData.new File.new "image.png")
+  raise Exception.new "couldn't upload!" if image_id.nil?
+  image_id = image_id.url
   puts "https://owo.whats-th.is/" + image_id
   if check_file_data
     response = HTTP::Client.get "https://owo.whats-th.is/" + image_id
@@ -26,7 +28,9 @@ describe OwO::WhatsThis do
     puts "data is equal!"
   end
   bytes = random.random_bytes 1024
-  bytes_id = inst.upload_data(bytes, "data.bin").files[0].url
+  bytes_id = inst.upload(OwO::UploadData.new bytes, "data.bin")
+  raise Exception.new "couldn't upload!" if bytes_id.nil?
+  bytes_id = bytes_id.url
   puts "https://owo.whats-th.is/" + bytes_id
   if check_file_data
     response = HTTP::Client.get "https://owo.whats-th.is/" + bytes_id
