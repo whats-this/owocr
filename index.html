@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/whats-this/owocr">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>README - github.com/whats-this/owocr</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li class="current"><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent " data-id="github.com/whats-this/owocr/OwO" data-name="owo">
+      <a href="OwO.html">OwO</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/whats-this/owocr/OwO/Exceptions" data-name="owo::exceptions">
+      <a href="OwO/Exceptions.html">Exceptions</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/InvalidToken" data-name="owo::exceptions::invalidtoken">
+      <a href="OwO/Exceptions/InvalidToken.html">InvalidToken</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/OwOInternalError" data-name="owo::exceptions::owointernalerror">
+      <a href="OwO/Exceptions/OwOInternalError.html">OwOInternalError</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLarge" data-name="owo::exceptions::toolarge">
+      <a href="OwO/Exceptions/TooLarge.html">TooLarge</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLargePayload" data-name="owo::exceptions::toolargepayload">
+      <a href="OwO/Exceptions/TooLargePayload.html">TooLargePayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/Unauthorized" data-name="owo::exceptions::unauthorized">
+      <a href="OwO/Exceptions/Unauthorized.html">Unauthorized</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadData" data-name="owo::uploaddata">
+      <a href="OwO/UploadData.html">UploadData</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadedFile" data-name="owo::uploadedfile">
+      <a href="OwO/UploadedFile.html">UploadedFile</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadedFileData" data-name="owo::uploadedfiledata">
+      <a href="OwO/UploadedFileData.html">UploadedFileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/WhatsThis" data-name="owo::whatsthis">
+      <a href="OwO/WhatsThis.html">WhatsThis</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1>owocr</h1>
+
+<p><a href="https://travis-ci.org/whats-this/owocr" target="_blank"><img src="https://travis-ci.org/whats-this/owocr.svg?branch=master" alt="Build Status"/></a></p>
+
+<p>A wrapper in <a href="https://crystal-lang.org" target="_blank">Crystal</a> for the <a href="https://owo.whats-th.is" target="_blank">OwO What's This?</a> file sharing service.</p>
+
+<h2>Instructions (Developers)</h2>
+
+<ol><li>Add this as a dependency to your <code>shards.yml</code>:</li></ol>
+
+<pre><code class='language-yaml'>dependencies:
+  owocr:
+    github: whats-this/owocr
+    branch: master</code></pre>
+
+<ol><li>Run <code>crystal deps</code> or <code>shards update</code></li><li>Check the usage below</li></ol>
+
+<h2>Usage</h2>
+
+<p>First a client is needed:</p>
+
+<pre><code class='language-crystal'><span class="k">require</span> <span class="s">&quot;owocr&quot;</span>
+
+client <span class="o">=</span> <span class="t">OwO</span><span class="t">::</span><span class="t">WhatsThis</span>.<span class="k">new</span> <span class="s">&quot;token&quot;</span>, <span class="s">&quot;optional user-agent for the requests&quot;</span></code></pre>
+
+<p>You will then need to utilise one of the methods as listed:</p>
+
+<ol><li><code>OwO::WhatsThis#shorten(url : String|URI) : String</code> - Returns the CDN endpoint.</li><li><code>OwO::WhatsThis#upload_file(data : File, contenttype : String? = nil) : UploadedFile</code> - Returns the <a href="src/owocr/uploadedfile" target="_blank">API data</a>.</li><li><code>OwO::WhatsThis#upload_data(data : Bytes, file_name : String, content_type : String) : UploadedFile</code> - Returns the API data.</li></ol>
+
+<p>For more in-depth explanation of these, you can go to the GitHub Wiki pages.</p>
+</div>
+</body>
+</html>

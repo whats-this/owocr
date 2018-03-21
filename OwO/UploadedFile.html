@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/whats-this/owocr">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>OwO::UploadedFile - github.com/whats-this/owocr</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/whats-this/owocr/OwO" data-name="owo">
+      <a href="../OwO.html">OwO</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/whats-this/owocr/OwO/Exceptions" data-name="owo::exceptions">
+      <a href="../OwO/Exceptions.html">Exceptions</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/InvalidToken" data-name="owo::exceptions::invalidtoken">
+      <a href="../OwO/Exceptions/InvalidToken.html">InvalidToken</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/OwOInternalError" data-name="owo::exceptions::owointernalerror">
+      <a href="../OwO/Exceptions/OwOInternalError.html">OwOInternalError</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLarge" data-name="owo::exceptions::toolarge">
+      <a href="../OwO/Exceptions/TooLarge.html">TooLarge</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLargePayload" data-name="owo::exceptions::toolargepayload">
+      <a href="../OwO/Exceptions/TooLargePayload.html">TooLargePayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/Unauthorized" data-name="owo::exceptions::unauthorized">
+      <a href="../OwO/Exceptions/Unauthorized.html">Unauthorized</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadData" data-name="owo::uploaddata">
+      <a href="../OwO/UploadData.html">UploadData</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/whats-this/owocr/OwO/UploadedFile" data-name="owo::uploadedfile">
+      <a href="../OwO/UploadedFile.html">UploadedFile</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadedFileData" data-name="owo::uploadedfiledata">
+      <a href="../OwO/UploadedFileData.html">UploadedFileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/WhatsThis" data-name="owo::whatsthis">
+      <a href="../OwO/WhatsThis.html">WhatsThis</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> OwO::UploadedFile
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../OwO/UploadedFile.html">OwO::UploadedFile</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p><code><a href="../OwO/UploadedFile.html">UploadedFile</a></code> contains data as to what files were uploaded to the API.
+As of <code><a href="../OwO.html#VERSION">VERSION</a></code> 0.1.0, <code><a href="../OwO/UploadedFile.html#files%3AArray%28OwO%3A%3AUploadedFileData%29-instance-method">UploadedFile#files</a></code> never has more than 1 item.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploadedfile.cr#L6" target="_blank">owocr/uploadedfile.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28success%2Cfiles%29-class-method" class="signature"><strong>.new</strong>(success, files)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28__temp_35%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(__temp_35 : JSON::PullParser)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#files%3AArray%28OwO%3A%3AUploadedFileData%29-instance-method" class="signature"><strong>#files</strong> : Array(OwO::UploadedFileData)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#files%3D%28_files%3AArray%28UploadedFileData%29%29-instance-method" class="signature"><strong>#files=</strong>(_files : Array(UploadedFileData))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#success%3ABool-instance-method" class="signature"><strong>#success</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#success%3D%28_success%3ABool%29-instance-method" class="signature"><strong>#success=</strong>(_success : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_json%28json%3AJSON%3A%3ABuilder%29-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(success,files)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(success, files)
+
+        <a class="method-permalink" href="#new%28success%2Cfiles%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploadedfile.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(__temp_35:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(__temp_35 : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28__temp_35%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="files:Array(OwO::UploadedFileData)-instance-method">
+      <div class="signature">
+        
+        def <strong>files</strong> : Array(<a href="../OwO/UploadedFileData.html">OwO::UploadedFileData</a>)
+
+        <a class="method-permalink" href="#files%3AArray%28OwO%3A%3AUploadedFileData%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="files=(_files:Array(UploadedFileData))-instance-method">
+      <div class="signature">
+        
+        def <strong>files=</strong>(_files : Array(<a href="../OwO/UploadedFileData.html">UploadedFileData</a>))
+
+        <a class="method-permalink" href="#files%3D%28_files%3AArray%28UploadedFileData%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="success:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>success</strong> : Bool
+
+        <a class="method-permalink" href="#success%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="success=(_success:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>success=</strong>(_success : Bool)
+
+        <a class="method-permalink" href="#success%3D%28_success%3ABool%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_json(json:JSON::Builder)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_json</strong>(json : JSON::Builder)
+
+        <a class="method-permalink" href="#to_json%28json%3AJSON%3A%3ABuilder%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/whats-this/owocr">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>OwO::WhatsThis - github.com/whats-this/owocr</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/whats-this/owocr/OwO" data-name="owo">
+      <a href="../OwO.html">OwO</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/whats-this/owocr/OwO/Exceptions" data-name="owo::exceptions">
+      <a href="../OwO/Exceptions.html">Exceptions</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/InvalidToken" data-name="owo::exceptions::invalidtoken">
+      <a href="../OwO/Exceptions/InvalidToken.html">InvalidToken</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/OwOInternalError" data-name="owo::exceptions::owointernalerror">
+      <a href="../OwO/Exceptions/OwOInternalError.html">OwOInternalError</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLarge" data-name="owo::exceptions::toolarge">
+      <a href="../OwO/Exceptions/TooLarge.html">TooLarge</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLargePayload" data-name="owo::exceptions::toolargepayload">
+      <a href="../OwO/Exceptions/TooLargePayload.html">TooLargePayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/Unauthorized" data-name="owo::exceptions::unauthorized">
+      <a href="../OwO/Exceptions/Unauthorized.html">Unauthorized</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadData" data-name="owo::uploaddata">
+      <a href="../OwO/UploadData.html">UploadData</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadedFile" data-name="owo::uploadedfile">
+      <a href="../OwO/UploadedFile.html">UploadedFile</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadedFileData" data-name="owo::uploadedfiledata">
+      <a href="../OwO/UploadedFileData.html">UploadedFileData</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/whats-this/owocr/OwO/WhatsThis" data-name="owo::whatsthis">
+      <a href="../OwO/WhatsThis.html">WhatsThis</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> OwO::WhatsThis
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../OwO/WhatsThis.html">OwO::WhatsThis</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p><code><a href="../OwO/WhatsThis.html">WhatsThis</a></code> refers to the actual client which is to be used with the wrapper.
+It is the entrypoint for any application wishing to use it, and is the only part of this meant to be used.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L20" target="_blank">owocr/client.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28token%3AString%2Cuser_agent%3AString%3DUSER_AGENT%2Capi_uri%3AString%3DAPI_URI%29-class-method" class="signature"><strong>.new</strong>(token : String, user_agent : String = <span class="t">USER_AGENT</span>, api_uri : String = <span class="t">API_URI</span>)</a>
+        
+          <div class="summary"><p>Initializes a new client instance with the following data:</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#data_base%3AString%3F-instance-method" class="signature"><strong>#data_base</strong> : String?</a>
+        
+          <div class="summary"><p>The base URI for all normal data uploaded.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data_base%3D%28data_base%3AString%3F%29-instance-method" class="signature"><strong>#data_base=</strong>(data_base : String?)</a>
+        
+          <div class="summary"><p>The base URI for all normal data uploaded.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shorten%28uri%3AString%7CURI%29-instance-method" class="signature"><strong>#shorten</strong>(uri : String | URI)</a>
+        
+          <div class="summary"><p><code><a href="../OwO/WhatsThis.html#shorten%28uri%3AString%7CURI%29-instance-method">#shorten</a></code> shortens the <code>String</code> URI or the <code>URI</code> instance as input.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shorten_base%3AString%3F-instance-method" class="signature"><strong>#shorten_base</strong> : String?</a>
+        
+          <div class="summary"><p>The base URI for all shortenings.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shorten_base%3D%28shorten_base%3AString%3F%29-instance-method" class="signature"><strong>#shorten_base=</strong>(shorten_base : String?)</a>
+        
+          <div class="summary"><p>The base URI for all shortenings.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method" class="signature"><strong>#upload</strong>(first : UploadData, second : UploadData?, third : UploadData? = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p><code><a href="../OwO/WhatsThis.html#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method">#upload</a></code> uploads the data from <code><a href="../OwO/UploadData.html">OwO::UploadData</a></code> objects.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#upload%28data%3AUploadData%29-instance-method" class="signature"><strong>#upload</strong>(data : UploadData)</a>
+        
+          <div class="summary"><p><code><a href="../OwO/WhatsThis.html#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method">#upload</a></code> uploads data given by <code><a href="../OwO/UploadData.html">OwO::UploadData</a></code> by passing it to the overloaded <code><a href="../OwO/WhatsThis.html#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method">#upload</a></code> method which takes three of them and spits out a tuple of three nullable <code><a href="../OwO/UploadedFile.html">OwO::UploadedFile</a></code>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(token:String,user_agent:String=USER_AGENT,api_uri:String=API_URI)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(token : String, user_agent : String = <span class="t">USER_AGENT</span>, api_uri : String = <span class="t">API_URI</span>)
+
+        <a class="method-permalink" href="#new%28token%3AString%2Cuser_agent%3AString%3DUSER_AGENT%2Capi_uri%3AString%3DAPI_URI%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Initializes a new client instance with the following data:</p>
+
+<ul><li><em>token</em> being the OwO token.
+   The token may not have the dashes stripped and must not include any form for whitespace.
+   If the token is empty, it will raise an <code><a href="../OwO/Exceptions/InvalidToken.html">Exceptions::InvalidToken</a></code> exception.</li><li><em>user_agent</em> being the User-Agent field.
+   The User-Agent to be used. This is not recommended to change, as your application may be denied access to the API.
+   It is defaulted to <code><a href="../OwO.html#USER_AGENT">OwO::USER_AGENT</a></code>.</li><li><em>api_uri</em> being the API URI endpoint.
+   The API endpoint URI to connect to and use while using the client.
+   Its default value is <code><a href="../OwO.html#API_URI">OwO::API_URI</a></code>.</li></ul>
+
+<p>It in turn initializes a new <code>Cossack::Client</code> which follows redirections and has the following headers:</p>
+
+<ul><li><code>User-Agent</code> => <em>user_agent</em></li><li><code>Authorization</code> => <em>token</em></li></ul></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L37" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="data_base:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>data_base</strong> : String?
+
+        <a class="method-permalink" href="#data_base%3AString%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The base URI for all normal data uploaded.
+This gets prepended to every <code>url</code> field in the <code><a href="../OwO/UploadedFileData.html">OwO::UploadedFileData</a></code> objects.</p>
+
+<p><span class="flag purple">NOTE</span>  This only applies to <code>#upload_data</code> and <code>#upload_file</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data_base=(data_base:String?)-instance-method">
+      <div class="signature">
+        
+        def <strong>data_base=</strong>(data_base : String?)
+
+        <a class="method-permalink" href="#data_base%3D%28data_base%3AString%3F%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The base URI for all normal data uploaded.
+This gets prepended to every <code>url</code> field in the <code><a href="../OwO/UploadedFileData.html">OwO::UploadedFileData</a></code> objects.</p>
+
+<p><span class="flag purple">NOTE</span>  This only applies to <code>#upload_data</code> and <code>#upload_file</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shorten(uri:String|URI)-instance-method">
+      <div class="signature">
+        
+        def <strong>shorten</strong>(uri : String | URI)
+
+        <a class="method-permalink" href="#shorten%28uri%3AString%7CURI%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><code><a href="../OwO/WhatsThis.html#shorten%28uri%3AString%7CURI%29-instance-method">#shorten</a></code> shortens the <code>String</code> URI or the <code>URI</code> instance as input.
+The single parameter <em>uri</em> specifies the <code>String</code> or <code>URI</code> to shorten and must be a standard UTF-8 URI.</p>
+
+<p>Under the following circumstances are exceptions raised:</p>
+
+<ul><li><code><a href="../OwO/Exceptions/Unauthorized.html">Exceptions::Unauthorized</a></code> is raised if the <code>@token</code> value is deactivated.</li><li><code><a href="../OwO/Exceptions/OwOInternalError.html">Exceptions::OwOInternalError</a></code> is raised if OwO has an internal error at their API.</li></ul>
+
+<p>A 404 error is not handled by this library and may result in a panic.</p>
+
+<p>It returns a <code>String</code> which is the endpoint key for the CDN.
+In order to access it, you'll need to prefix it with a valid CDN URI, found on the OwO FAQ.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L133" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shorten_base:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>shorten_base</strong> : String?
+
+        <a class="method-permalink" href="#shorten_base%3AString%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The base URI for all shortenings.
+This gets prepended to the shortened URI return.</p>
+
+<p><span class="flag purple">NOTE</span>  This only applies to <code><a href="../OwO/WhatsThis.html#shorten%28uri%3AString%7CURI%29-instance-method">#shorten</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L57" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shorten_base=(shorten_base:String?)-instance-method">
+      <div class="signature">
+        
+        def <strong>shorten_base=</strong>(shorten_base : String?)
+
+        <a class="method-permalink" href="#shorten_base%3D%28shorten_base%3AString%3F%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The base URI for all shortenings.
+This gets prepended to the shortened URI return.</p>
+
+<p><span class="flag purple">NOTE</span>  This only applies to <code><a href="../OwO/WhatsThis.html#shorten%28uri%3AString%7CURI%29-instance-method">#shorten</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L57" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="upload(first:UploadData,second:UploadData?,third:UploadData?=nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>upload</strong>(first : <a href="../OwO/UploadData.html">UploadData</a>, second : <a href="../OwO/UploadData.html">UploadData</a>?, third : <a href="../OwO/UploadData.html">UploadData</a>? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><code><a href="../OwO/WhatsThis.html#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method">#upload</a></code> uploads the data from <code><a href="../OwO/UploadData.html">OwO::UploadData</a></code> objects.
+You can pass up to three, as that's what OwO limits it at, but if it were higher, there would be more support.</p>
+
+<p>Under the following circumstances are exceptions raised:</p>
+
+<ul><li><code><a href="../OwO/Exceptions/Unauthorized.html">Exceptions::Unauthorized</a></code> is raised if the <code>@token</code> value is deactivated.</li><li><code><a href="../OwO/Exceptions/TooLargePayload.html">Exceptions::TooLargePayload</a></code> is raised if OwO changes the payload max size before this library updates.</li><li><code><a href="../OwO/Exceptions/TooLarge.html">Exceptions::TooLarge</a></code> is raised if you upload data over the size of 100MiB.</li><li><code><a href="../OwO/Exceptions/OwOInternalError.html">Exceptions::OwOInternalError</a></code> is raised if OwO has an internal error at their API.</li></ul>
+
+<p>A 404 error is not handled by this library and may result in a panic.</p>
+
+<p>It does not return <code><a href="../OwO/UploadedFile.html">OwO::UploadedFile</a></code> as it did in v0.1.0, however it returns <code><a href="../OwO/UploadedFileData.html">OwO::UploadedFileData</a></code>.
+In this case it however returns it as <code>Tuple(<a href="../OwO/UploadedFileData.html">UploadedFileData</a>?, <a href="../OwO/UploadedFileData.html">UploadedFileData</a>?, <a href="../OwO/UploadedFileData.html">UploadedFileData</a>?)</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L92" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="upload(data:UploadData)-instance-method">
+      <div class="signature">
+        
+        def <strong>upload</strong>(data : <a href="../OwO/UploadData.html">UploadData</a>)
+
+        <a class="method-permalink" href="#upload%28data%3AUploadData%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><code><a href="../OwO/WhatsThis.html#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method">#upload</a></code> uploads data given by <code><a href="../OwO/UploadData.html">OwO::UploadData</a></code> by passing it to the overloaded <code><a href="../OwO/WhatsThis.html#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method">#upload</a></code>
+method which takes three of them and spits out a tuple of three nullable <code><a href="../OwO/UploadedFile.html">OwO::UploadedFile</a></code>.</p>
+
+<p>All this does is call <code><a href="../OwO/WhatsThis.html#upload%28first%3AUploadData%2Csecond%3AUploadData%3F%2Cthird%3AUploadData%3F%3Dnil%29-instance-method">#upload</a></code> with two nil arguments and get the first tuple member.</p>
+
+<p>Under the following circumstances are exceptions raised:</p>
+
+<ul><li><code><a href="../OwO/Exceptions/Unauthorized.html">Exceptions::Unauthorized</a></code> is raised if the <code>@token</code> value is deactivated.</li><li><code><a href="../OwO/Exceptions/TooLargePayload.html">Exceptions::TooLargePayload</a></code> is raised if OwO changes the payload max size before this library updates.</li><li><code><a href="../OwO/Exceptions/TooLarge.html">Exceptions::TooLarge</a></code> is raised if you upload data over the size of 100MiB.</li><li><code><a href="../OwO/Exceptions/OwOInternalError.html">Exceptions::OwOInternalError</a></code> is raised if OwO has an internal error at their API.</li></ul>
+
+<p>A 404 error is not handled by this library and may result in a panic.</p>
+
+<p><span class="flag purple">NOTE</span>  The return is nullable and there is no guarantee this conforms to your needs.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/client.cr#L74" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

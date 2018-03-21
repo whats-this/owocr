@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/whats-this/owocr">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>OwO::UploadData - github.com/whats-this/owocr</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/whats-this/owocr/OwO" data-name="owo">
+      <a href="../OwO.html">OwO</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/whats-this/owocr/OwO/Exceptions" data-name="owo::exceptions">
+      <a href="../OwO/Exceptions.html">Exceptions</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/InvalidToken" data-name="owo::exceptions::invalidtoken">
+      <a href="../OwO/Exceptions/InvalidToken.html">InvalidToken</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/OwOInternalError" data-name="owo::exceptions::owointernalerror">
+      <a href="../OwO/Exceptions/OwOInternalError.html">OwOInternalError</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLarge" data-name="owo::exceptions::toolarge">
+      <a href="../OwO/Exceptions/TooLarge.html">TooLarge</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLargePayload" data-name="owo::exceptions::toolargepayload">
+      <a href="../OwO/Exceptions/TooLargePayload.html">TooLargePayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/Unauthorized" data-name="owo::exceptions::unauthorized">
+      <a href="../OwO/Exceptions/Unauthorized.html">Unauthorized</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/whats-this/owocr/OwO/UploadData" data-name="owo::uploaddata">
+      <a href="../OwO/UploadData.html">UploadData</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadedFile" data-name="owo::uploadedfile">
+      <a href="../OwO/UploadedFile.html">UploadedFile</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadedFileData" data-name="owo::uploadedfiledata">
+      <a href="../OwO/UploadedFileData.html">UploadedFileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/WhatsThis" data-name="owo::whatsthis">
+      <a href="../OwO/WhatsThis.html">WhatsThis</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> OwO::UploadData
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../OwO/UploadData.html">OwO::UploadData</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploaddata.cr#L2" target="_blank">owocr/uploaddata.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28data%3ABytes%2Cfilename%3AString%3D%26quot%3Bdata.bin%26quot%3B%2Ccontent_type%3AString%3D%26quot%3Bapplication%2Foctet-stream%26quot%3B%29-class-method" class="signature"><strong>.new</strong>(data : Bytes, filename : String = <span class="s">&quot;data.bin&quot;</span>, content_type : String = <span class="s">&quot;application/octet-stream&quot;</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28file%3AFile%2Cname%3AString%3F%3Dnil%2Ctype%3AString%3F%3Dnil%29-class-method" class="signature"><strong>.new</strong>(file : File, name : String? = <span class="n">nil</span>, type : String? = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#content_type-instance-method" class="signature"><strong>#content_type</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#content_type%3D%28content_type%3AString%29-instance-method" class="signature"><strong>#content_type=</strong>(content_type : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#content_type%3F%3AString%3F-instance-method" class="signature"><strong>#content_type?</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data-instance-method" class="signature"><strong>#data</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data%3D%28data%3ABytes%29-instance-method" class="signature"><strong>#data=</strong>(data : Bytes)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data%3F%3ASlice%28UInt8%29%3F-instance-method" class="signature"><strong>#data?</strong> : Slice(UInt8)?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#filename-instance-method" class="signature"><strong>#filename</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#filename%3D%28filename%3AString%29-instance-method" class="signature"><strong>#filename=</strong>(filename : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#filename%3F%3AString%3F-instance-method" class="signature"><strong>#filename?</strong> : String?</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(data:Bytes,filename:String=&amp;quot;data.bin&amp;quot;,content_type:String=&amp;quot;application/octet-stream&amp;quot;)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(data : Bytes, filename : String = <span class="s">&quot;data.bin&quot;</span>, content_type : String = <span class="s">&quot;application/octet-stream&quot;</span>)
+
+        <a class="method-permalink" href="#new%28data%3ABytes%2Cfilename%3AString%3D%26quot%3Bdata.bin%26quot%3B%2Ccontent_type%3AString%3D%26quot%3Bapplication%2Foctet-stream%26quot%3B%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploaddata.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(file:File,name:String?=nil,type:String?=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(file : File, name : String? = <span class="n">nil</span>, type : String? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new%28file%3AFile%2Cname%3AString%3F%3Dnil%2Ctype%3AString%3F%3Dnil%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploaddata.cr#L10" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="content_type-instance-method">
+      <div class="signature">
+        
+        def <strong>content_type</strong>
+
+        <a class="method-permalink" href="#content_type-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="content_type=(content_type:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>content_type=</strong>(content_type : String)
+
+        <a class="method-permalink" href="#content_type%3D%28content_type%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploaddata.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="content_type?:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>content_type?</strong> : String?
+
+        <a class="method-permalink" href="#content_type%3F%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data-instance-method">
+      <div class="signature">
+        
+        def <strong>data</strong>
+
+        <a class="method-permalink" href="#data-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data=(data:Bytes)-instance-method">
+      <div class="signature">
+        
+        def <strong>data=</strong>(data : Bytes)
+
+        <a class="method-permalink" href="#data%3D%28data%3ABytes%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploaddata.cr#L3" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data?:Slice(UInt8)?-instance-method">
+      <div class="signature">
+        
+        def <strong>data?</strong> : Slice(UInt8)?
+
+        <a class="method-permalink" href="#data%3F%3ASlice%28UInt8%29%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="filename-instance-method">
+      <div class="signature">
+        
+        def <strong>filename</strong>
+
+        <a class="method-permalink" href="#filename-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="filename=(filename:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>filename=</strong>(filename : String)
+
+        <a class="method-permalink" href="#filename%3D%28filename%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploaddata.cr#L4" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="filename?:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>filename?</strong> : String?
+
+        <a class="method-permalink" href="#filename%3F%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

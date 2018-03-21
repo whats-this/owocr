@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/whats-this/owocr">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>OwO::UploadedFileData - github.com/whats-this/owocr</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/whats-this/owocr/OwO" data-name="owo">
+      <a href="../OwO.html">OwO</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/whats-this/owocr/OwO/Exceptions" data-name="owo::exceptions">
+      <a href="../OwO/Exceptions.html">Exceptions</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/InvalidToken" data-name="owo::exceptions::invalidtoken">
+      <a href="../OwO/Exceptions/InvalidToken.html">InvalidToken</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/OwOInternalError" data-name="owo::exceptions::owointernalerror">
+      <a href="../OwO/Exceptions/OwOInternalError.html">OwOInternalError</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLarge" data-name="owo::exceptions::toolarge">
+      <a href="../OwO/Exceptions/TooLarge.html">TooLarge</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/TooLargePayload" data-name="owo::exceptions::toolargepayload">
+      <a href="../OwO/Exceptions/TooLargePayload.html">TooLargePayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/Exceptions/Unauthorized" data-name="owo::exceptions::unauthorized">
+      <a href="../OwO/Exceptions/Unauthorized.html">Unauthorized</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadData" data-name="owo::uploaddata">
+      <a href="../OwO/UploadData.html">UploadData</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/UploadedFile" data-name="owo::uploadedfile">
+      <a href="../OwO/UploadedFile.html">UploadedFile</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/whats-this/owocr/OwO/UploadedFileData" data-name="owo::uploadedfiledata">
+      <a href="../OwO/UploadedFileData.html">UploadedFileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/whats-this/owocr/OwO/WhatsThis" data-name="owo::whatsthis">
+      <a href="../OwO/WhatsThis.html">WhatsThis</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> OwO::UploadedFileData
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../OwO/UploadedFileData.html">OwO::UploadedFileData</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p><code><a href="../OwO/UploadedFileData.html">UploadedFileData</a></code> contains data to the actual files which were uploaded.</p>
+
+<p>The following fields are in use:</p>
+
+<ul><li><strong>hash</strong> is the entire data hash. This can be used to verify the file which was sent.</li><li><strong>name</strong> is the name of the file sent, as specified by the file name in the upload method.</li><li><strong>url</strong> is the URI endpoint to the CDN. It must have a valid CDN domain as a prefix to visit.</li><li><strong>size</strong> is the total size of the file. This is useful to show users where the library is used.</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploadedfile.cr#L24" target="_blank">owocr/uploadedfile.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28hash%2Cname%2Curl%2Csize%29-class-method" class="signature"><strong>.new</strong>(hash, name, url, size)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28__temp_42%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(__temp_42 : JSON::PullParser)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#hash%3AString-instance-method" class="signature"><strong>#hash</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hash%3D%28_hash%3AString%29-instance-method" class="signature"><strong>#hash=</strong>(_hash : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name%3D%28_name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(_name : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size%3AInt64-instance-method" class="signature"><strong>#size</strong> : Int64</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size%3D%28_size%3AInt64%29-instance-method" class="signature"><strong>#size=</strong>(_size : Int64)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_json%28json%3AJSON%3A%3ABuilder%29-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#url%3AString-instance-method" class="signature"><strong>#url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#url%3D%28_url%3AString%29-instance-method" class="signature"><strong>#url=</strong>(_url : String)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(hash,name,url,size)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(hash, name, url, size)
+
+        <a class="method-permalink" href="#new%28hash%2Cname%2Curl%2Csize%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/whats-this/owocr/blob/d713efb22bf60c17859a39eb4a6c30322eddb38e/src/owocr/uploadedfile.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(__temp_42:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(__temp_42 : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28__temp_42%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="hash:String-instance-method">
+      <div class="signature">
+        
+        def <strong>hash</strong> : String
+
+        <a class="method-permalink" href="#hash%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hash=(_hash:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>hash=</strong>(_hash : String)
+
+        <a class="method-permalink" href="#hash%3D%28_hash%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>name</strong> : String
+
+        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name=(_name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>name=</strong>(_name : String)
+
+        <a class="method-permalink" href="#name%3D%28_name%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong> : Int64
+
+        <a class="method-permalink" href="#size%3AInt64-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size=(_size:Int64)-instance-method">
+      <div class="signature">
+        
+        def <strong>size=</strong>(_size : Int64)
+
+        <a class="method-permalink" href="#size%3D%28_size%3AInt64%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_json(json:JSON::Builder)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_json</strong>(json : JSON::Builder)
+
+        <a class="method-permalink" href="#to_json%28json%3AJSON%3A%3ABuilder%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>url</strong> : String
+
+        <a class="method-permalink" href="#url%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="url=(_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>url=</strong>(_url : String)
+
+        <a class="method-permalink" href="#url%3D%28_url%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
