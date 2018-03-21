@@ -18,10 +18,12 @@ notifications:
       - "%{result} @ %{elapsed_time} - %{build_url}"
       - "Changes: %{compare_url}"
 
+before_deploy: rm owocr
+
 deploy:
   provider: pages
   keep-history: false
-  skip-cleanup: false
+  skip-cleanup: true
   # Token is set in Travis dashboard
   github-token: $GITHUB_TOKEN
   local-dir: docs
