@@ -135,7 +135,7 @@ module OwO
       raise Exceptions::Unauthorized.new if response.status == 401
       raise Exceptions::OwOInternalError.new if response.status == 500
       url = response.body.lines.first
-      url = url.lchop "https://awau.moe/#{base}"
+      url = url.lchop "https://awau.moe/"
       base = get_proper_shorten_base || return url
       url = base + url
 
