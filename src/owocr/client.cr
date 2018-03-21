@@ -131,7 +131,7 @@ module OwO
     # It returns a `String` which is the endpoint key for the CDN.
     # In order to access it, you'll need to prefix it with a valid CDN URI, found on the OwO FAQ.
     def shorten(uri : String | URI)
-      response = "#{@client.get @api_url}/shorten/polr?action=shorten&url=#{uri.to_s}"
+      response = "#{@client.get @api_uri}/shorten/polr?action=shorten&url=#{uri.to_s}"
       raise Exceptions::Unauthorized.new if response.status == 401
       raise Exceptions::OwOInternalError.new if response.status == 500
       url = response.body.lines.first
