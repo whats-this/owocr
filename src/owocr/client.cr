@@ -13,7 +13,7 @@ module OwO
 
   # `USER_AGENT` is the default constant User-Agent header.
   # The version is specified by `VERSION`, which changes as the wrapper updates.
-  USER_AGENT = "WhatsThisClient (https://github.com/whats-this/owocr, " + VERSION + ")"
+  USER_AGENT = "WhatsThisClient (https://github.com/whats-this/owocr, #{VERSION})"
 
   # `WhatsThis` refers to the actual client which is to be used with the wrapper.
   # It is the entrypoint for any application wishing to use it, and is the only part of this meant to be used.
@@ -103,7 +103,7 @@ module OwO
         add_multipart third, multipart
         multipart.finish
       end
-      response = @client.post(@api_uri + "/upload/pomf", io.to_s) do |req|
+      response = @client.post "#{@api_uri}/upload/pomf", io.to_s do |req|
         req.headers["Content-Type"] = "multipart/form-data; boundary=" + boundary
       end
       raise Exceptions::Unauthorized.new if response.status == 401
@@ -111,11 +111,9 @@ module OwO
       raise Exceptions::OwOInternalError.new if response.status == 500
       uploaded = UploadedFile.from_json response.body
       base = get_proper_data_base
-      if !base.nil?
-        uploaded.files.each do |data|
-          data.url = base + data.url
-        end
-      end
+      uploaded.files.each do |data|
+        data.url = base + data.url
+      end if !base.nil?
 
       {uploaded.files[0]?, uploaded.files[1]?, uploaded.files[2]?}
     end
@@ -133,11 +131,11 @@ module OwO
     # It returns a `String` which is the endpoint key for the CDN.
     # In order to access it, you'll need to prefix it with a valid CDN URI, found on the OwO FAQ.
     def shorten(uri : String | URI)
-      response = @client.get @api_uri + "/shorten/polr?action=shorten&url=" + uri.to_s
+      response = "#{@client.get @api_url}/shorten/polr?action=shorten&url=#{uri.to_s}"
       raise Exceptions::Unauthorized.new if response.status == 401
       raise Exceptions::OwOInternalError.new if response.status == 500
       url = response.body.lines.first
-      url = url.lchop "https://awau.moe/"
+      url = url.lchop "https://awau.moe/#{base}"
       base = get_proper_shorten_base || return url
       url = base + url
 
@@ -170,9 +168,10 @@ module OwO
       base
     end
 
+    # This is an internal macro to add a multipart easily body.
     private macro add_multipart(name, multipart)
       {{multipart}}.body_part HTTP::Headers{
-        "Content-Disposition" => "form-data; name=\"files[]\"; filename=\"" + {{name}}.filename + "\"",
+        "Content-Disposition" => "form-data; name=\"files[]\"; filename=\"#{{{name}}.filename}\"",
         "Content-Type"        => {{name}}.content_type,
       }, {{name}}.data if !{{name}}.nil?
     end
