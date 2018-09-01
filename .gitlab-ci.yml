@@ -1,14 +1,13 @@
 image: "crystallang/crystal:latest"
 
-cache:
-  paths:
-    - lib
-
-before-script:
+build:
+  stage: build
+  script:
   - apt-get update -qq
   - apt-get install -y -qq libxml2-dev
   - crystal -v #Show version
   - shards
+  - shards build
 
     # commented out due to not having access to create secure variables
     #spec:
@@ -39,3 +38,4 @@ pages:
       - public
   only:
     - master
+
