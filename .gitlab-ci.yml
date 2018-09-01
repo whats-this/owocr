@@ -9,6 +9,7 @@ build:
   - apt-get install -y -qq libxml2-dev
   - crystal -v #Show version
   - shards
+  - shards install
   - shards build
 
     # commented out due to not having access to create secure variables
@@ -22,6 +23,8 @@ gen-docs:
     - x86_64-host
   stage: test
   script:
+    - shards
+    - shards install
     - crystal docs
   only:
     - master
