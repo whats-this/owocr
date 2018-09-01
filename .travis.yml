@@ -3,7 +3,6 @@ language: crystal
 script:
   - crystal build src/owocr.cr
   - crystal spec
-  - crystal docs
 
 notifications:
   email: false
@@ -17,16 +16,3 @@ notifications:
       - "#%{build_number} (%{build_id}) -> %{repository_slug}/%{branch} (%{commit}, %{author}): %{commit_subject}"
       - "%{result} @ %{elapsed_time} - %{build_url}"
       - "Changes: %{compare_url}"
-
-before_deploy: rm owocr
-
-deploy:
-  provider: pages
-  keep-history: false
-  skip-cleanup: true
-  # Token is set in Travis dashboard
-  github-token: $GITHUB_TOKEN
-  local-dir: docs
-  comitter-from-gh: true
-  on:
-    branch: master
