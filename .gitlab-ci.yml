@@ -1,0 +1,41 @@
+image: "crystallang/crystal:latest"
+
+cache:
+  paths:
+    - lib
+
+before-script:
+  - apt-get update -qq
+  - apt-get install -y -qq libxml2-dev
+  - crystal -v #Show version
+  - shards
+
+    # commented out due to not having access to create secure variables
+    #spec:
+    #  stage: test
+    #  script:
+    #    - crystal spec
+
+gen-docs:
+  stage: test
+  script:
+    - crystal docs
+  only:
+    - master
+  artifacts:
+    paths:
+      - docs
+  image: "crystallang/crystal:latest"
+
+pages:
+  image: busybox:latest
+  stage: deploy
+  script:
+    - mv docs public
+  dependencies:
+    - gen-docs
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
