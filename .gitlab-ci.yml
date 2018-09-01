@@ -1,6 +1,8 @@
 image: "crystallang/crystal:latest"
 
 build:
+  tags:
+    - x86_64-host
   stage: build
   script:
   - apt-get update -qq
@@ -16,6 +18,8 @@ build:
     #    - crystal spec
 
 gen-docs:
+  tags:
+    - x86_64-host
   stage: test
   script:
     - crystal docs
@@ -27,6 +31,8 @@ gen-docs:
   image: "crystallang/crystal:latest"
 
 pages:
+  tags:
+    - x86_64-host
   image: busybox:latest
   stage: deploy
   script:
